@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white" >
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/submit_product_photo"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+ 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left" 
+        android:layout_margin="@dimen/system_padding"
+        android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/submit_product_name"
+       style="@style/littleTxtStyle"
+       android:gravity="left"
+       android:textSize="12sp"
+       android:maxLines="2"
+       android:ellipsize="end"
+        android:text="1111111111111"/>
+           <LinearLayout 
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+                 <TextView
+            style="@style/littleTxtStyle"
+            android:gravity="center"
+            android:text="数量："/>
+                <TextView
+            android:id="@+id/submit_product_num"
+            style="@style/littleTxtStyle"
+            android:gravity="center"
+            android:textColor="@color/blue"
+            android:text="111"/>
+           </LinearLayout>
+       
+            <LinearLayout 
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+                 <TextView
+            style="@style/littleTxtStyle"
+            android:gravity="center"
+            android:text="价格："/>
+                <TextView
+            android:id="@+id/submit_product_price"
+            style="@style/littleTxtStyle"
+            android:gravity="center"
+            android:textColor="@color/red"
+            android:text="111"/>
+           </LinearLayout>
+    </LinearLayout>
+
+  
+
+</LinearLayout>

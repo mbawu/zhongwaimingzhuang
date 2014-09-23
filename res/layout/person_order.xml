@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+
+        <RadioGroup
+            android:id="@+id/person_order_tab"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <!-- 待付款 -->
+
+            <RadioButton
+                android:id="@+id/person_order_waitpay"
+                style="@style/subTabStyle"
+                android:layout_weight="1.0"
+                android:text="@string/person_order_waitpay"
+                android:textColor="@color/color_order_tab_radiobutton" />
+            <!-- 待发货 -->
+
+            <RadioButton
+                android:id="@+id/person_order_waitsend"
+                style="@style/subTabStyle"
+                android:layout_weight="1.0"
+                android:text="@string/person_order_waitsend"
+                android:textColor="@color/color_order_tab_radiobutton" />
+            <!-- 待收货 -->
+
+            <RadioButton
+                android:id="@+id/person_order_waitreceive"
+                style="@style/subTabStyle"
+                android:layout_weight="1.0"
+                android:text="@string/person_order_waitreceive"
+                android:textColor="@color/color_order_tab_radiobutton" />
+            <!-- 已完成 -->
+
+            <RadioButton
+                android:id="@+id/person_order_done"
+                style="@style/subTabStyle"
+                android:layout_weight="1.0"
+                android:text="@string/person_order_done"
+                android:textColor="@color/color_order_tab_radiobutton" />
+        </RadioGroup>
+
+        <ListView 
+            android:id="@+id/person_order_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+
+</LinearLayout>

@@ -1,0 +1,356 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- 整个标题栏 -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bg" >
+
+        <!-- 后退按钮 -->
+
+        <LinearLayout
+            android:id="@+id/person_forgetpwd_backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="@drawable/title_item_selector"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/title_icon_left"
+                style="@style/backStyle"
+                android:src="@drawable/back" />
+        </LinearLayout>
+
+        <!-- title txt -->
+
+        <TextView
+            style="@style/titleTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/person_forgetpwd_title" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/system_padding"
+        android:orientation="vertical" >
+
+        <!-- 显示步骤框 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="35dp"
+            android:layout_marginTop="35dp" >
+
+            <TextView
+                android:id="@+id/person_forgetpwd_step1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/p1_show"
+                android:gravity="center"
+                android:text="@string/person_forgetpwd_step1"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/person_forgetpwd_step2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/p2_hide"
+                android:gravity="center"
+                android:text="@string/person_forgetpwd_step2"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/person_forgetpwd_step3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/p3_hide"
+                android:gravity="center"
+                android:text="@string/person_forgetpwd_step3"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <!-- 步骤1内容 -->
+
+        <LinearLayout
+            android:id="@+id/person_forgetpwd_step1_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/system_padding"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical" >
+
+           
+            
+            
+            <!-- 手机号码 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/system_padding_mid" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="left|center_vertical"
+                    android:text="手机号码 :"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/person_forgetpwd_phonenum"
+                    style="@style/input_box"
+                    android:layout_weight="1"
+                    android:inputType="number" />
+            </LinearLayout>
+            
+             <!-- 用户名 
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/system_padding_mid" >
+
+               <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="left|center_vertical"
+                    android:text="用户名:"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/person_forgetpwd_username"
+                    style="@style/input_box"
+                    android:layout_weight="1"
+ />
+            </LinearLayout>-->
+            <!-- 验证码 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/system_padding_mid" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text="验证码 :"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/person_forgetpwd_code"
+                    style="@style/input_box"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:inputType="number" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp" >
+
+                    <TextView
+                        android:id="@+id/person_forgetpwd_getcode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/person_forgetpwd_getcode"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="获取验证码"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 步骤2 -->
+
+        <LinearLayout
+            android:id="@+id/person_forgetpwd_step2_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/system_padding"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <!-- 新密码 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/system_padding_mid" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="left|center_vertical"
+                        android:text="新密码:"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/person_forgetpwd_newpwd"
+                        style="@style/input_box"
+                        android:layout_weight="1"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+                <!-- 密码复杂度 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" 
+                    android:layout_marginBottom="@dimen/system_padding"
+                    android:gravity="right|center_vertical">
+
+                    <TextView 
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="安全程度："/>
+                    <TextView
+                        android:id="@+id/person_forgetpwd_sec_low"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/orange"
+                         android:textColor="@color/white"
+                        android:padding="@dimen/system_padding"
+                        android:text="弱" />
+
+                    <TextView
+                        android:id="@+id/person_forgetpwd_sec_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightgray"
+                         android:textColor="@color/white"
+                        android:padding="@dimen/system_padding"
+                        android:text="中" />
+
+                    <TextView
+                        android:id="@+id/person_forgetpwd_sec_high"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/lightgray"
+                         android:textColor="@color/white"
+                        android:padding="@dimen/system_padding"
+                        android:text="高" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 确认密码 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/system_padding_mid" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="left|center_vertical"
+                    android:text="确认密码:"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/person_forgetpwd_renewpwd"
+                    style="@style/input_box"
+                    android:layout_weight="1"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 步骤3 -->
+
+        <LinearLayout
+            android:id="@+id/person_forgetpwd_step3_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/system_padding"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/person_forgetpwd_done" />
+            <!-- 返回首页按钮 -->
+
+            <LinearLayout
+                android:id="@+id/title_txt_right_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:background="@drawable/title_item_selector"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/person_forgetpwd_backtomain"
+                    style="@style/titleBtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:paddingBottom="3dp"
+                    android:paddingTop="3dp"
+                    android:text="返回首页" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/person_forgetpwd_next"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/button"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:text="@string/person_forgetpwd_next"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

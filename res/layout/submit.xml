@@ -1,0 +1,279 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightgray"
+    android:orientation="vertical" >
+
+    <!-- 整个标题栏 -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bg" >
+
+        <!-- 后退按钮 -->
+
+        <LinearLayout
+            android:id="@+id/submit_backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/title_item_selector"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/title_icon_left"
+                style="@style/backStyle"
+                android:src="@drawable/back" />
+        </LinearLayout>
+
+        <!-- title txt -->
+
+        <TextView
+            style="@style/titleTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="结算" />
+    </FrameLayout>
+<ScrollView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <!-- 地址管理模块 -->
+
+    <LinearLayout
+        style="@style/linearLayout_box"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <!-- 收货地址文本框及管理地址按钮 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/system_padding" >
+
+            <TextView
+                style="@style/littleTxtStyle"
+                android:text="收货地址" />
+
+            <TextView
+                android:id="@+id/submit_change_address_btn"
+                style="@style/littleTxtStyle"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:text="【修改默认地址】"
+                android:textColor="@color/green" />
+        </LinearLayout>
+        <!-- 默认地址显示栏 -->
+
+        <LinearLayout
+            android:id="@+id/submit_default_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+		
+            <TextView
+                android:id="@+id/submit_default_name_phone"
+                style="@style/littleTxtStyle"
+                android:layout_width="match_parent"
+                android:gravity="left"
+                android:text="暂无收货地址" />
+            <TextView
+                android:id="@+id/submit_default_address"
+                style="@style/littleTxtStyle"
+                android:layout_width="match_parent"
+                android:gravity="left" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 商品清单模块 -->
+
+    <LinearLayout
+        style="@style/linearLayout_box"
+        android:layout_margin="@dimen/system_padding"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/littleTxtStyle"
+            android:text="商品清单" />
+
+        <ListView
+            android:id="@+id/submit_product_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
+    </LinearLayout>
+
+    <!-- 支付方式模块 -->
+
+    <LinearLayout
+        style="@style/linearLayout_box"
+        android:layout_margin="@dimen/system_padding"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/littleTxtStyle"
+            android:text="支付方式" />
+        <RadioGroup 
+            android:id="@+id/submit_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/system_padding_mid"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/submit_payway_online"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:button="@null"
+                android:textColor="@color/blue"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:drawableLeft="@drawable/submit_payway_bg"
+                android:text="在线支付"/>
+            
+             <RadioButton
+                  android:id="@+id/submit_payway_receive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:layout_marginLeft="20dp"
+                  android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/gray"
+                android:drawableLeft="@drawable/submit_payway_no_bg"
+                android:text="货到付款"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- 配送方式模块 -->
+
+    <LinearLayout
+        style="@style/linearLayout_box"
+        android:layout_margin="@dimen/system_padding"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/littleTxtStyle"
+            android:text="配送方式" />
+    </LinearLayout>
+
+    <!-- 店铺优惠模块 -->
+
+    <LinearLayout
+         android:id="@+id/submit_coupon_layout"
+        style="@style/linearLayout_box"
+        android:layout_margin="@dimen/system_padding"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/littleTxtStyle"
+            android:text="可使用的优惠券" />
+         <TextView
+              android:id="@+id/submit_nocoupon_txt"
+            style="@style/littleTxtStyle"
+            android:text="暂无优惠券" />
+         
+    </LinearLayout>
+    <!-- 商品总价模块 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_margin="@dimen/system_padding"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:gravity="right">
+
+            <TextView
+                style="@style/littleTxtStyle"
+                android:text="商品总价：" />
+            <TextView
+                android:id="@+id/submit_totalprice"
+                style="@style/littleTxtStyle"
+                android:textColor="@color/red"
+                android:text="￥0.0" />
+        </LinearLayout>
+        
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:gravity="right">
+
+            <TextView
+                style="@style/littleTxtStyle"
+                android:text="运费：" />
+            <TextView
+                android:id="@+id/submit_freightprice"
+                style="@style/littleTxtStyle"
+                android:textColor="@color/red"
+                android:text="￥0.0" />
+        </LinearLayout>
+        
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:gravity="right">
+
+            <TextView
+                style="@style/littleTxtStyle"
+                android:text="优惠券优惠价：" />
+            <TextView
+                 android:id="@+id/submit_couponprice"
+                style="@style/littleTxtStyle"
+                android:textColor="@color/red"
+                android:text="￥0.0" />
+        </LinearLayout>
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:gravity="right">
+
+            <TextView
+                style="@style/littleTxtStyle"
+                android:text="实付款：" />
+            <TextView
+                 android:id="@+id/submit_realprice"
+                style="@style/littleTxtStyle"
+                android:textColor="@color/red"
+                android:text="￥0.0" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 提交按钮 -->
+
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        android:text="提交订单"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

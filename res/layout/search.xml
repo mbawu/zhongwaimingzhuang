@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- 标题栏 -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bg" >
+
+        <TextView
+            android:id="@+id/home_title"
+            style="@style/titleTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="搜索" />
+    </FrameLayout>
+
+        
+       
+       <FrameLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/system_padding_mid">
+            
+             <AutoCompleteTextView 
+                 android:id="@+id/searchTxt"
+            style="@style/input_box"
+            android:hint="请输入要搜索的内容"/>
+            <ImageView 
+                android:id="@+id/searchbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="right|center_vertical"/>
+
+        </FrameLayout>
+        <GridView 
+            android:id="@+id/search_gridview"
+        android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:columnWidth="140dp"
+                android:gravity="center"
+                android:horizontalSpacing="10px"
+                android:numColumns="auto_fit"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="10px"></GridView>
+
+</LinearLayout>

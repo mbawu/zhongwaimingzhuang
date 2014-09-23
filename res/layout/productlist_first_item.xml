@@ -1,0 +1,31 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_more"
+                android:orientation="vertical">
+
+	<RelativeLayout
+                style="@style/linearLayout_box"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+               android:layout_marginTop="35dp">
+
+                <TextView
+                    android:id="@+id/productlist_firsttxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/my_go" />
+            </RelativeLayout>
+            </LinearLayout>

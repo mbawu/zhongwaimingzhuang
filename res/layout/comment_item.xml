@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="10dp" >
+
+    <LinearLayout style="@style/linearLayout_box" 
+        android:orientation="vertical">
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/system_padding">
+            <TextView 
+                android:id="@+id/comment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginLeft="4dp"
+                android:textColor="@color/blue"/>
+            
+            <RatingBar
+                android:id="@+id/comment_stars"
+               style="@style/RedStartRatingBar"
+               android:layout_marginLeft="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stepSize="1"
+                android:rating="5"
+                android:layout_gravity="left|center_vertical"
+                android:numStars="5" />
+        </LinearLayout>
+        <TextView 
+                android:id="@+id/comment_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:textSize="15sp"
+                android:textColor="@color/black"/>
+        
+        <TextView 
+                android:id="@+id/comment_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:gravity="right"
+                android:textSize="10sp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/gray"/>
+    </LinearLayout>
+
+</LinearLayout>

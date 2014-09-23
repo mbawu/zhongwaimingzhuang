@@ -1,0 +1,148 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+
+    <!-- 整个标题栏 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bg" >
+
+        <!-- 后退按钮 -->
+
+        <LinearLayout
+            android:id="@+id/title_icon_left_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/title_item_selector"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/title_icon_left"
+                style="@style/backStyle"
+                android:src="@drawable/back" />
+        </LinearLayout>
+
+        <!-- title txt -->
+
+        <TextView
+            style="@style/titleTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/person_login_title" />
+
+        <!-- 注册按钮 -->
+
+        <LinearLayout
+            android:id="@+id/title_txt_right_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center_vertical"
+            android:background="@drawable/title_item_selector"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/person_login_register"
+                style="@style/titleBtnStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:textSize="13sp"
+                android:text="@string/person_login_register" />
+        </LinearLayout>
+    </FrameLayout>
+    
+    <!-- 用户名 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/person_login_username_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/person_login_username_img" />
+
+        <EditText
+            android:id="@+id/person_login_username"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="14dp"
+            android:background="#00000000"
+            android:hint="@string/person_login_username_hint"
+            android:textColor="#333333"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <!-- 密码 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/person_login_username_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/person_login_password_img" />
+
+        <EditText
+            android:id="@+id/person_login_password"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="14dp"
+            android:background="#00000000"
+            android:hint="@string/person_login_password_hint"
+            android:inputType="textPassword"
+            android:textColor="#333333"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <!-- 忘记密码 -->
+
+    <TextView
+        android:id="@+id/person_login_forgetPwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center_vertical"
+        android:paddingRight="15dp"
+        android:text="@string/person_login_forgetPwd"
+        android:textColor="@color/gray" 
+        android:visibility="visible"/>
+
+    <!-- 登录按钮 -->
+
+    <Button
+        android:id="@+id/person_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        android:text="@string/person_login_title"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>

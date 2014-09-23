@@ -1,0 +1,137 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bg" >
+
+        <TextView
+            style="@style/titleTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="@string/person_title" />
+
+        <!-- 更多按钮 -->
+
+        <LinearLayout
+            android:id="@+id/person_more_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/title_item_selector"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_gravity="right">
+
+            <ImageView
+                style="@style/backStyle"
+                android:src="@drawable/person_more_img" />
+        </LinearLayout>
+        <!-- 
+        <TextView
+            android:id="@+id/person_more"
+            style="@style/titleBtnStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:background="@drawable/button"
+            android:text="@string/person_more" />
+             -->
+    </FrameLayout>
+
+     
+    <!-- 个人中心选项卡 -->
+
+    <RadioGroup
+        android:id="@+id/person_tab_group"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.2dp"
+        android:orientation="horizontal" >
+
+        <!-- 订单详情 -->
+
+        <RadioButton
+            android:id="@+id/person_tab_order"
+            style="@style/btnTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/person_order" />
+        <!-- 优惠券 -->
+
+        <RadioButton
+            android:id="@+id/person_tab_coupon"
+            style="@style/btnTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/person_coupon" />
+        <!-- 会员信息 -->
+
+        <RadioButton
+            android:id="@+id/person_tab_info"
+            style="@style/btnTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/person_info" />
+        <!-- 收货地址 -->
+
+        <RadioButton
+            android:id="@+id/person_tab_address"
+            style="@style/btnTxtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/person_address" />
+    </RadioGroup>
+<!-- 注销 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/person_loginout_bg" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical" >
+<!-- 注销的图片 -->
+            <ImageView
+                android:id="@+id/person_loginout_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/person_loginout__img_btn" />
+<!-- 注销的文字 -->
+            <TextView
+                android:id="@+id/person_loginout_txt"
+                style="@style/txtStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/person_loginout_img"
+                android:background="@drawable/person_loginout_txt_bg"
+                android:text="@string/person_loginout" />
+        </RelativeLayout>
+    </FrameLayout>
+    
+    <LinearLayout 
+		android:id="@+id/person_subtab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+                android:background="@color/gray_more"
+                android:orientation="vertical">
+    </LinearLayout>
+    
+
+</LinearLayout>
