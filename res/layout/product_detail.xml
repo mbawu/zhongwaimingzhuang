@@ -59,12 +59,12 @@
                     android:layout_height="240dp"
                     android:background="@android:color/white" >
 
-                    <com.bdh.base.MyViewFlipper
+                    <com.zwmz.base.MyViewFlipper
                         android:id="@+id/product_viewflipper"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:background="@android:color/white" >
-                    </com.bdh.base.MyViewFlipper>
+                    </com.zwmz.base.MyViewFlipper>
 
                     <TextView
                         android:id="@+id/product_imgnum"

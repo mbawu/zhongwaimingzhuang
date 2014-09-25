@@ -11,8 +11,8 @@
        
        <drawable name="drawable_gray">#FF575756</drawable>
        <drawable name="drawable_white">#FFFFFFFF</drawable>   
-        <drawable name="btn_press">#2964CD</drawable>   
-   <drawable name="btn_normal">#296ECD</drawable>  
+        <drawable name="btn_press">#ab4c47</drawable>   
+   <drawable name="btn_normal">#ab2447</drawable>  
    <drawable name="btn_add_address">#ffd3d3d3</drawable>
    <color name="gallery_background">#ff111111</color>
     <color name="gallery_alpha">#b0000000</color>
@@ -63,5 +63,5 @@
     <color name="orange">#fffaaa50</color>
     
     <color name="system_gray">#ffededed</color>
-    <color name="blue">#ff0000ff</color>
+    <color name="blue">#ab2447</color>
 </resources>

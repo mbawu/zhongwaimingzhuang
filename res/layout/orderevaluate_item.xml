@@ -107,7 +107,7 @@
                 android:id="@+id/starBtn"
                style="@style/EditeStartRatingBar"
                 android:layout_width="wrap_content"
-                android:layout_height="22dp"
+                android:layout_height="20dp"
                 android:layout_marginBottom="2dp"
                 android:stepSize="1"
                 android:rating="5"

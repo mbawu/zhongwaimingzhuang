@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <string name="app_name">黑龙江绿色食品官网</string>
+    <string name="app_name">荣誉庄主</string>
     <string name="action_settings">Settings</string>
     <string name="version">1.0</string>
     <!-- 底部菜单栏 -->
@@ -54,7 +54,7 @@
     <string name="person_more_clear_cache">清空缓存</string>
     <string name="person_more_about">关于我们</string>
     <string name="person_more_tel">客服电话</string>
-    <string name="person_more_tel_num">4000838310</string>
+    <string name="person_more_tel_num">13321144613</string>
     <!-- 订单 -->
     <string name="person_order_waitpay">待付款</string>
     <string name="person_order_waitsend">待发货</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bdh"
+    package="com.zwmz"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -9,7 +9,7 @@
         android:targetSdkVersion="18" />
 
     <permission
-        android:name="com.bdh.permission.JPUSH_MESSAGE"
+        android:name="com.zwmz.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
-    <uses-permission android:name="com.bdh.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="com.zwmz.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -27,7 +27,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
      <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <application
-        android:name="com.bdh.base.MyApplication"
+        android:name="com.zwmz.base.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -50,7 +50,7 @@
             android:enabled="true" >
              <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />   <!--Required  显示通知栏 -->
-                <category android:name="com.bdh" />
+                <category android:name="com.zwmz" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -79,7 +79,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.bdh" />
+                <category android:name="com.zwmz" />
             </intent-filter>
         </activity>
         <!-- Required SDK:RICH PUSH -->
@@ -120,11 +120,11 @@
             android:name="com.alipay.android.app.sdk.WapPayActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.bdh.pay.PayMethod"
+            android:name="com.zwmz.pay.PayMethod"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.Load"
+            android:name="com.zwmz.activity.Load"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -134,95 +134,95 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.bdh.activity.MenuBottom"
+            android:name="com.zwmz.activity.MenuBottom"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.Home"
+            android:name="com.zwmz.activity.product.Home"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.HomeHot"
+            android:name="com.zwmz.activity.product.HomeHot"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.ProductDetail"
+            android:name="com.zwmz.activity.product.ProductDetail"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.Search"
+            android:name="com.zwmz.activity.product.Search"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.ProductList"
+            android:name="com.zwmz.activity.product.ProductList"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.ProductListShow"
+            android:name="com.zwmz.activity.product.ProductListShow"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.CommentList"
+            android:name="com.zwmz.activity.product.CommentList"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.SubmitOrder"
+            android:name="com.zwmz.activity.product.SubmitOrder"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
          <activity
-            android:name="com.bdh.activity.product.SubmitSuccess"
+            android:name="com.zwmz.activity.product.SubmitSuccess"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
          <activity
-            android:name="com.bdh.activity.product.OrderDetail"
+            android:name="com.zwmz.activity.product.OrderDetail"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
           <activity
-            android:name="com.bdh.activity.product.OrderEvaluate"
+            android:name="com.zwmz.activity.product.OrderEvaluate"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.product.ShopCart"
+            android:name="com.zwmz.activity.product.ShopCart"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.Person"
+            android:name="com.zwmz.activity.person.Person"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.PersonAddressManager"
+            android:name="com.zwmz.activity.person.PersonAddressManager"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.PersonLogin"
+            android:name="com.zwmz.activity.person.PersonLogin"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.PersonForgetPwd"
+            android:name="com.zwmz.activity.person.PersonForgetPwd"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.PersonRegister"
+            android:name="com.zwmz.activity.person.PersonRegister"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.PersonMore"
+            android:name="com.zwmz.activity.person.PersonMore"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.PersonMoreAbout"
+            android:name="com.zwmz.activity.person.PersonMoreAbout"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.PersonMoreSugest"
+            android:name="com.zwmz.activity.person.PersonMoreSugest"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.bdh.activity.person.personMoreMessage"
+            android:name="com.zwmz.activity.person.personMoreMessage"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
          <activity
-            android:name="com.bdh.activity.person.PersonMoreMessageDetail"
+            android:name="com.zwmz.activity.person.PersonMoreMessageDetail"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
     </application>
