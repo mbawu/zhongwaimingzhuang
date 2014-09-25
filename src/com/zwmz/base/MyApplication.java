@@ -161,7 +161,8 @@ public class MyApplication extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-//				System.exit(0);
+			if(!exit)
+				System.exit(0);
 		}
 	}
 
