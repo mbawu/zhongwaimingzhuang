@@ -29,13 +29,15 @@
             
              <AutoCompleteTextView 
                  android:id="@+id/searchTxt"
-            style="@style/input_box"
+            style="@style/edit_box"
+            android:layout_height="50dp"
             android:hint="请输入要搜索的内容"/>
             <ImageView 
                 android:id="@+id/searchbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search"
+                 android:layout_marginBottom="7dp"
                 android:layout_marginRight="10dp"
                 android:layout_gravity="right|center_vertical"/>
 
