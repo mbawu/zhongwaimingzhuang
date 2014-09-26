@@ -6,6 +6,7 @@ import java.util.List;
 
 
 import com.android.volley.toolbox.NetworkImageView;
+import com.zwmz.pay.PayMethod;
 import com.zwmz.activity.person.Person;
 import com.zwmz.activity.person.PersonAddress;
 import com.zwmz.activity.person.PersonCoupon;
@@ -667,6 +668,15 @@ public class MyAdapter extends BaseAdapter implements
 		case R.id.order_right_btn:// 订单列表右边按钮
 			Order order= (Order) v.getTag();
 			switch (orderTypeTemp) {
+			//如果是待付款状态该按钮为付款的功能
+			case 1:
+				Intent intentPay=new Intent();
+				intentPay.setClass(((PersonOrder)object).getActivity(), PayMethod.class);
+				intentPay.putExtra("subject", order.getOrderSubject());
+				intentPay.putExtra("price", order.getTotalPrice());
+				intentPay.putExtra("oid", order.getOrderID());
+				((PersonOrder)object).startActivity(intentPay);
+				break;
 			//如果是待收货状态该按钮为确认收货的功能
 			case 3:
 				((PersonOrder) object).confirmReceive(order.getOrderID());
