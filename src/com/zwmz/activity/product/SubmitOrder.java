@@ -534,6 +534,7 @@ public class SubmitOrder extends Activity implements OnClickListener {
 										couponLayout.addView(layout);
 									}
 								} else if (request.equals(NetworkAction.提交订单)) {
+									Log.i(MyApplication.TAG, "start");
 									// 删除购物车中提交成功的商品
 									for (int i = 0; i < MyApplication.shopCartList
 											.size(); i++) {
@@ -620,7 +621,9 @@ public class SubmitOrder extends Activity implements OnClickListener {
 			json.append("{");
 			json.append("\"product_id\":\"").append(product.getId())
 					.append("\"");
-
+			if(product.getGift_name()!=null)
+				json.append(",\"gift_name\":\"").append(product.getGift_name())
+			.append("\"");
 			json.append(",\"product_num\":\"").append(product.getNum())
 					.append("\"");
 			json.append(",\"store_price\":\"").append(product.getStorePrice())

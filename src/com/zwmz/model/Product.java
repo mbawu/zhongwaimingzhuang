@@ -44,7 +44,18 @@ public class Product  implements Serializable{
 	private ArrayList<Coupon> coupons;
 	private String OrderItemID;//子订单ID
 	private String priceID;//属性ID
+	private String gift_name;//商品赠品
 	
+	
+	public String getGift_name() {
+		return gift_name;
+	}
+
+
+	public void setGift_name(String gift_name) {
+		this.gift_name = gift_name;
+	}
+
 	
 	
 	public String getPriceID() {

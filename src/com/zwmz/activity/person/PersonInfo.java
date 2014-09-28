@@ -281,7 +281,7 @@ public class PersonInfo extends Fragment implements OnClickListener {
 			paramter.put("email", emailTxt.getText().toString());
 			paramter.put("sex",sex);
 			String birthday = showBrithdayTxt.getText().toString();
-			if (!birthday.equals("")) {
+			if (!birthday.equals("null")) {
 				String year = birthday.substring(0, 4);
 				int monthChar = birthday.indexOf("-");
 				int dayChar = birthday.lastIndexOf("-");

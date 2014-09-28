@@ -710,8 +710,10 @@ public class ProductDetail extends Activity implements OnClickListener,
 													.getColor(R.color.gray));
 											giftRB.setId(i);
 											giftRB.setTextSize(12);
-											// giftRB.setTag(item
-											// .getString("Price"));
+											giftRB.setTag(item
+													.getString("GiftName"));
+											product.setGift_name(item
+													.getString("GiftName"));
 											giftGroup.addView(giftRB,layoutParams1);
 											if (i == 0) {
 												// 定义标题文本框
@@ -725,6 +727,20 @@ public class ProductDetail extends Activity implements OnClickListener,
 												layout.addView(giftTxt);
 											}
 										}
+										giftGroup
+										 .setOnCheckedChangeListener(new
+										 OnCheckedChangeListener() {
+										
+										 @Override
+										 public void onCheckedChanged(
+										 RadioGroup group,
+										 int checkedId) {
+										 RadioButton btn = (RadioButton) group
+										 .getChildAt(checkedId);
+										 String gift_name=btn.getTag().toString();
+										 product.setGift_name(gift_name);
+										 }
+										 });
 										layout.addView(giftGroup);
 										giftLayout.addView(layout);
 									}
