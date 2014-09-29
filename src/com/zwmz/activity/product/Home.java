@@ -450,7 +450,7 @@ public class Home extends BaseActivity implements OnClickListener,
 			sendDataToServer(NetworkAction.秒杀商品);// 初始化秒杀商品数据
 			// sendDataToServer(getHotProduct);//初始化秒杀商品数据
 			backBtn.setVisibility(View.GONE);// 隐藏后退按钮
-			titleTxt.setText("恒融汇通");// 标题显示为恒融汇通
+			titleTxt.setText("首页");// 标题显示为首页
 			// secKillLayout.setVisibility(View.VISIBLE);//显示秒杀模块
 			hotLayout.setVisibility(View.VISIBLE);// 显示热门商品模块
 			secKillLayout.setVisibility(View.VISIBLE);// 显示秒杀模块
