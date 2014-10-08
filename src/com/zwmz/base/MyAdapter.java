@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
 import com.android.volley.toolbox.NetworkImageView;
-import com.zwmz.pay.PayMethod;
 import com.zwmz.activity.person.Person;
 import com.zwmz.activity.person.PersonAddress;
 import com.zwmz.activity.person.PersonCoupon;
@@ -25,6 +23,7 @@ import com.zwmz.model.NetworkAction;
 import com.zwmz.model.Order;
 import com.zwmz.model.Product;
 import com.zwmz.R;
+import com.zwmz.pay.PayMethod;
 
 import android.app.Activity;
 import android.content.Context;
@@ -62,6 +61,7 @@ public class MyAdapter extends BaseAdapter implements
 	private ArrayList<Object> data;
 	private NetworkAction request;
 	private int orderTypeTemp;
+
 	/**
 	 * 
 	 * @param object
@@ -160,8 +160,7 @@ public class MyAdapter extends BaseAdapter implements
 			else if (request.equals(NetworkAction.评论订单))
 				convertView = MyApplication.Inflater.inflate(
 						R.layout.orderevaluate_item, null);
-			
-			
+
 		}
 		// 如果是秒杀商品并且已经有view了则不再重绘直接返回当前view，为了不让倒计时线程重复添加view
 		else if (convertView != null && request.equals(NetworkAction.秒杀商品)) {
@@ -288,12 +287,22 @@ public class MyAdapter extends BaseAdapter implements
 						category.getCategory_id()))
 					temp.add(thirdCategory);
 			}
+			//如果没有三级分类更改图片
+			if(temp.size()==0)
+			{
+				ImageView secondImg=(ImageView) convertView
+						.findViewById(R.id.productlist_second_img);
+				secondImg.setBackgroundDrawable(MyApplication.resources
+						.getDrawable(R.drawable.first_img));
+			}
 			// 把获取到的该二级分类下的三级分类装载到适配器里面
 			MyAdapter adapter = new MyAdapter(object, NetworkAction.三级分类, temp);
 			thirdListView.setAdapter(adapter);
 			// 设置列表高度，全部显示三级分类，不要滚动条
 			setListViewHeight(thirdListView);
 			secondItem.setTag(thirdListView);
+			secondItem.setTag(R.id.tag_first, temp);
+			secondItem.setTag(R.id.tag_second, category);
 		} else if (request.equals(NetworkAction.三级分类)) {
 			Category category = (Category) data.get(position);
 			TextView thirdTxt = (TextView) convertView
@@ -486,22 +495,23 @@ public class MyAdapter extends BaseAdapter implements
 			orderDateTxt.setText("创建时间：" + order.getOutCreateTime());
 			// 显示第一个产品的第一张图片
 			ArrayList<Object> products = order.getProducts();
-			MyApplication.client.getImageForNetImageView(((Product)products.get(0))
-					.getImgs().get(0), img, R.drawable.ic_launcher);
+			MyApplication.client.getImageForNetImageView(
+					((Product) products.get(0)).getImgs().get(0), img,
+					R.drawable.ic_launcher);
 			orderSubjectTxt.setText(order.getOrderSubject());
 			// 商品数量
 			orderNumTxt.setText(order.getTotalRecord());
 			// 订单金额
-			orderTotalpriceTxt.setText("￥"+order.getTotalPrice());
-//			leftBtn.setTag(R.id.tag_first, convertView);
+			orderTotalpriceTxt.setText("￥" + order.getTotalPrice());
+			// leftBtn.setTag(R.id.tag_first, convertView);
 			leftBtn.setTag(order.getOrderID());
-//			rightBtn.setTag(order.getOrderID());
+			// rightBtn.setTag(order.getOrderID());
 			rightBtn.setTag(order);
 			// 要查看的订单类型：1.待付款，2.待发货，3.待收货，4.已完成
 			int orderType = Integer.valueOf(order.getOrderType());
-			orderTypeTemp=orderType;
-			int orderComment=Integer.valueOf(order.getComments());
-//			leftBtn.setTag(R.id.tag_three, orderType);
+			orderTypeTemp = orderType;
+			int orderComment = Integer.valueOf(order.getComments());
+			// leftBtn.setTag(R.id.tag_three, orderType);
 			leftBtn.setOnClickListener(this);
 			rightBtn.setOnClickListener(this);
 			switch (orderType) {
@@ -513,8 +523,7 @@ public class MyAdapter extends BaseAdapter implements
 					leftBtn.setText("取消订单");
 					rightBtn.setVisibility(View.VISIBLE);
 					rightBtn.setText("  付     款  ");
-				}
-				else {
+				} else {
 					btnLayout.setVisibility(View.GONE);
 					leftBtn.setVisibility(View.GONE);
 					rightBtn.setVisibility(View.GONE);
@@ -523,14 +532,14 @@ public class MyAdapter extends BaseAdapter implements
 				break;
 			case 2:
 				if (order.getIsPay().equals("0")
-						&& Integer.valueOf(order.getFlag()) < 3 ) {
+						&& Integer.valueOf(order.getFlag()) < 3) {
 					btnLayout.setVisibility(View.VISIBLE);
 					leftBtn.setVisibility(View.VISIBLE);
 					leftBtn.setText("取消订单");
 				} else {
 					btnLayout.setVisibility(View.GONE);
 					leftBtn.setVisibility(View.GONE);
-				
+
 				}
 				rightBtn.setVisibility(View.GONE);
 				break;
@@ -545,16 +554,14 @@ public class MyAdapter extends BaseAdapter implements
 				leftBtn.setVisibility(View.GONE);
 				rightBtn.setVisibility(View.VISIBLE);
 				// 评论状态 1已评论，0未评论
-				if (orderComment==0)
+				if (orderComment == 0)
 					rightBtn.setText("  评     价  ");
 				else
 					rightBtn.setText("  晒     单  ");
 				break;
 			}
 
-		}
-		else if (request.equals(NetworkAction.评论订单))
-		{
+		} else if (request.equals(NetworkAction.评论订单)) {
 			Product product = (Product) data.get(position);
 			NetworkImageView img = (NetworkImageView) convertView
 					.findViewById(R.id.order_evaluate_photo);
@@ -563,29 +570,28 @@ public class MyAdapter extends BaseAdapter implements
 					.findViewById(R.id.order_evaluate_name);
 			TextView priceTxt = (TextView) convertView
 					.findViewById(R.id.order_evaluate_price);
-			
+
 			final RatingBar stars = (RatingBar) convertView
 					.findViewById(R.id.starBtn);
-			
+
 			Button addComment = (Button) convertView
 					.findViewById(R.id.addComment);
 			final EditText comments = (EditText) convertView
 					.findViewById(R.id.addContent);
 			stars.setTag(product);
-			
+
 			addComment.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
 
 					if (comments.getText().toString().equals("")) {
-						Toast.makeText((Context) object,
-								"请填写评论！", 2000).show();
+						Toast.makeText((Context) object, "请填写评论！", 2000).show();
 						return;
 					}
 					stars.setTag(R.id.tag_first, comments.getText().toString());
-					MyApplication.comment=false;
-					((OrderEvaluate)object).publishComment(stars);
+					MyApplication.comment = false;
+					((OrderEvaluate) object).publishComment(stars);
 				}
 			});
 			// 先判断是秒杀商品还是正常商品，根据不同的商品显示不同的信息
@@ -621,18 +627,38 @@ public class MyAdapter extends BaseAdapter implements
 
 		case R.id.productlist_second_itemlayout:// 二级列表分类点击事件
 			ListView thirdListView = (ListView) v.getTag();
+			ArrayList<Object> temp = (ArrayList<Object>) v
+					.getTag(R.id.tag_first);
 			ImageView img = (ImageView) v
 					.findViewById(R.id.productlist_second_img);
-			// 二级分类列表底下的三级分类显示的时候
-			if (thirdListView.getVisibility() == View.VISIBLE) {
-				img.setBackgroundDrawable(MyApplication.resources
-						.getDrawable(R.drawable.productlist_second_close));
-				thirdListView.setVisibility(View.GONE);
-			} else// 二级分类列表底下的三级分类没有显示的时候
+			//如果二级分类下有三级分类的情况
+			if (temp.size() > 0) {
+				// 二级分类列表底下的三级分类显示的时候
+				if (thirdListView.getVisibility() == View.VISIBLE) {
+					img.setBackgroundDrawable(MyApplication.resources
+							.getDrawable(R.drawable.productlist_second_close));
+					thirdListView.setVisibility(View.GONE);
+				} else// 二级分类列表底下的三级分类没有显示的时候
+				{
+					img.setBackgroundDrawable(MyApplication.resources
+							.getDrawable(R.drawable.productlist_second_open));
+					thirdListView.setVisibility(View.VISIBLE);
+				}
+			}
+			//如果没有三级分类的情况
+			else
 			{
 				img.setBackgroundDrawable(MyApplication.resources
-						.getDrawable(R.drawable.productlist_second_open));
-				thirdListView.setVisibility(View.VISIBLE);
+						.getDrawable(R.drawable.first_img));
+				thirdListView.setVisibility(View.GONE);
+				// 获取该分类的信息
+				Category category = (Category) v.getTag(R.id.tag_second);
+				// 从商品分类页面跳转到商品展示页面
+				Intent intent = new Intent().setClass((Context) object,
+						ProductListShow.class);
+				intent.putExtra("Category_id", category.getCategory_id());
+				intent.putExtra("CacheID", category.getCacheID());
+				((ProductList) object).startActivity(intent);
 			}
 			break;
 		case R.id.productlist_third_itemlayout:// 点击三级分类事件
@@ -662,38 +688,39 @@ public class MyAdapter extends BaseAdapter implements
 			((Person) object).startActivity(product_detail_intent);
 			break;
 		case R.id.order_left_btn:// 订单列表左边按钮
-			String orderID= (String) v.getTag();
+			String orderID = (String) v.getTag();
 			((PersonOrder) object).cancelOrder(orderID);
 			break;
 		case R.id.order_right_btn:// 订单列表右边按钮
-			Order order= (Order) v.getTag();
+			Order order = (Order) v.getTag();
 			switch (orderTypeTemp) {
-			//如果是待付款状态该按钮为付款的功能
+			// 如果是待付款状态该按钮为付款的功能
 			case 1:
-				Intent intentPay=new Intent();
-				intentPay.setClass(((PersonOrder)object).getActivity(), PayMethod.class);
+				Intent intentPay = new Intent();
+				intentPay.setClass(((PersonOrder) object).getActivity(),
+						PayMethod.class);
 				intentPay.putExtra("subject", order.getOrderSubject());
 				intentPay.putExtra("price", order.getTotalPrice());
 				intentPay.putExtra("oid", order.getOrderID());
-				((PersonOrder)object).startActivity(intentPay);
+				((PersonOrder) object).startActivity(intentPay);
 				break;
-			//如果是待收货状态该按钮为确认收货的功能
+			// 如果是待收货状态该按钮为确认收货的功能
 			case 3:
 				((PersonOrder) object).confirmReceive(order.getOrderID());
 				break;
-				//如果是已完成状态该按钮为评价订单的功能
+			// 如果是已完成状态该按钮为评价订单的功能
 			case 4:
-				//如果是未评价的状态才执行评价操作
-				if (order.getComments().equals("0"))
-				{
-					Intent intent2=new Intent();
-					intent2.setClass(((PersonOrder)object).getActivity(), OrderEvaluate.class);
+				// 如果是未评价的状态才执行评价操作
+				if (order.getComments().equals("0")) {
+					Intent intent2 = new Intent();
+					intent2.setClass(((PersonOrder) object).getActivity(),
+							OrderEvaluate.class);
 					intent2.putExtra("order", order);
-					((PersonOrder)object).startActivity(intent2);
+					((PersonOrder) object).startActivity(intent2);
 				}
 				break;
 			}
-			
+
 			break;
 		}
 

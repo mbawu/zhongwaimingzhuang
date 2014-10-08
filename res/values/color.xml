@@ -8,7 +8,7 @@
        <color name="black">#000000</color>
        <color name="gray">#FF575756</color>
        <color name="gray_more">#FCFCFC</color>
-       
+       <drawable name="style_color">#ab2447</drawable>
        <drawable name="drawable_gray">#FF575756</drawable>
        <drawable name="drawable_white">#FFFFFFFF</drawable>   
         <drawable name="btn_press">#ab4c47</drawable>   

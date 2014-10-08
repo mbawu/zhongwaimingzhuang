@@ -6,7 +6,7 @@
                 android:orientation="vertical">
 
 	<RelativeLayout
-                style="@style/linearLayout_box"
+                style="@style/linearLayout_box_productlist_sec"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                android:layout_marginTop="35dp">
@@ -26,6 +26,6 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/my_go" />
+                    android:src="@drawable/first_img" />
             </RelativeLayout>
             </LinearLayout>

@@ -27,7 +27,6 @@ import com.zwmz.model.Coupon;
 import com.zwmz.model.ErrorMsg;
 import com.zwmz.model.NetworkAction;
 import com.zwmz.model.Product;
-import com.zwmz.utils.EulaWebView;
 import com.zwmz.R;
 
 import android.annotation.SuppressLint;

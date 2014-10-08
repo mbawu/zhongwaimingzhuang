@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,12 +41,12 @@ public class ProductList extends BaseActivity implements OnClickListener,
 	private ListView firstListView;// 1级列表listview
 	private ListView secListView;// 2级列表listview
 
-	private MyAdapter firstAdapter;//1级分类适配器
-	private MyAdapter secAdapter;//2级分类适配器
-	private MyAdapter thirdAdapter;//3级分类适配器
-	private ArrayList<Object> fristLevel;//1级分类数据
-	private ArrayList<Object> secLevel;//2级分类数据
-	public ArrayList<Object> thirdLevel;//3级分类数据
+	private MyAdapter firstAdapter;// 1级分类适配器
+	private MyAdapter secAdapter;// 2级分类适配器
+	private MyAdapter thirdAdapter;// 3级分类适配器
+	private ArrayList<Object> fristLevel;// 1级分类数据
+	private ArrayList<Object> secLevel;// 2级分类数据
+	public ArrayList<Object> thirdLevel;// 3级分类数据
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +66,10 @@ public class ProductList extends BaseActivity implements OnClickListener,
 		secListView = (ListView) findViewById(R.id.productlist_second_listview);
 		secListView.setDivider(null);
 		secListView.setOnItemClickListener(this);
-//		thirdListView = (ListView) findViewById(R.id.productlist_third_listview);
-//		thirdListView.setDivider(null);
-//		thirdListView.setOnItemClickListener(this);
+		// thirdListView = (ListView)
+		// findViewById(R.id.productlist_third_listview);
+		// thirdListView.setDivider(null);
+		// thirdListView.setOnItemClickListener(this);
 		fristLevel = new ArrayList<Object>();
 		secLevel = new ArrayList<Object>();
 		thirdLevel = new ArrayList<Object>();
@@ -163,13 +166,16 @@ public class ProductList extends BaseActivity implements OnClickListener,
 												.getString("category_name"));
 										thirdLevel.add(i, category);
 									}
-									Log.i(MyApplication.TAG, request+"load-->"+thirdLevel.size());
+									Log.i(MyApplication.TAG, request
+											+ "load-->" + thirdLevel.size());
 								}
 
 							} else {
-								Toast.makeText(ProductList.this, request
-										+ ErrorMsg.getErrorMsg(request, code),
-										2000).show();
+								Toast.makeText(
+										ProductList.this,
+										request
+												+ ErrorMsg.getErrorMsg(request,
+														code), 2000).show();
 							}
 						} catch (JSONException e) {
 							Log.i(MyApplication.TAG, request
@@ -203,7 +209,6 @@ public class ProductList extends BaseActivity implements OnClickListener,
 
 	}
 
-	
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long parentId) {
@@ -212,9 +217,6 @@ public class ProductList extends BaseActivity implements OnClickListener,
 		switch (parent.getId()) {
 
 		case R.id.productlist_first_listview: // 点击一级分类时候的事件
-			backBtn.setVisibility(View.VISIBLE); // 显示后退按钮
-			firstListView.setVisibility(View.GONE); // 隐藏一级分类视图
-			secListView.setVisibility(View.VISIBLE); // 显示二级分类视图
 			temp = new ArrayList<Object>(); // 装载临时需要显示的数据
 			for (int i = 0; i < secLevel.size(); i++) {
 				Category secCategory = (Category) secLevel.get(i);
@@ -224,9 +226,28 @@ public class ProductList extends BaseActivity implements OnClickListener,
 					temp.add(secCategory);
 				}
 			}
-			// 根据点击的父类ID设置相应的adapter
-			secAdapter = new MyAdapter(this, NetworkAction.二级分类, temp);
-			secListView.setAdapter(secAdapter);
+			// 如果有二级分类的时候处理的情况
+			if (temp.size() > 0) {
+				backBtn.setVisibility(View.VISIBLE); // 显示后退按钮
+				firstListView.setVisibility(View.GONE); // 隐藏一级分类视图
+				secListView.setVisibility(View.VISIBLE); // 显示二级分类视图
+				// 根据点击的父类ID设置相应的adapter
+				secAdapter = new MyAdapter(this, NetworkAction.二级分类, temp);
+				secListView.setAdapter(secAdapter);
+			}
+			// 只有一级分类，没有二级分类的情况
+			else {
+				backBtn.setVisibility(View.GONE); // 显示后退按钮
+				firstListView.setVisibility(View.VISIBLE); // 显示一级分类视图
+				secListView.setVisibility(View.GONE); // 隐藏二级分类视图
+				Intent intent = new Intent().setClass(this,
+						ProductListShow.class);
+				intent.putExtra("Category_id",
+						((Category) fristLevel.get(position)).getCategory_id());
+				intent.putExtra("CacheID",
+						((Category) fristLevel.get(position)).getCacheID());
+				startActivity(intent);
+			}
 			break;
 		}
 
